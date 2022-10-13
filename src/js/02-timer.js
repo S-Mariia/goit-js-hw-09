@@ -1,7 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 require('flatpickr/dist/themes/confetti.css');
-import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
   spanDays: document.querySelector('span[data-days]'),
@@ -25,7 +25,7 @@ const options = {
     selectedDate = selectedDates[0].getTime();
   
     if (selectedDate - Date.now() < 0) {
-      Notiflix.Notify.warning('Please choose a date in the future');
+      Notify.warning('Please choose a date in the future');
       stopTimer(intervalId);
       updateTimer(0);
       return;
